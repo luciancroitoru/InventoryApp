@@ -71,7 +71,7 @@
                 android:layout_marginRight="20dp"
                 android:clickable="true"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/add_resource" />
+                android:src="@drawable/empty_image_frame" />
 
             <TextView
                 android:id="@+id/save_image_text"

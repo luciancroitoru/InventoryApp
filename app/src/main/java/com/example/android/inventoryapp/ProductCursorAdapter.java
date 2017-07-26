@@ -11,12 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CursorAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.inventoryapp.data.ProductContract.ProductEntry;
 
-import static com.example.android.inventoryapp.R.id.quantity;
 import static com.example.android.inventoryapp.data.ProductProvider.LOG_TAG;
 
 /**
@@ -65,14 +63,13 @@ public class ProductCursorAdapter extends CursorAdapter {
      *                correct row.
      */
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void bindView(View view, final Context context, Cursor cursor) {
         // Find individual views that we want to modify in the list item layout
         TextView nameTextView = (TextView) view.findViewById(R.id.name);
         TextView priceTextView = (TextView) view.findViewById(R.id.price);
-        TextView quantityTextView = (TextView) view.findViewById(quantity);
+        TextView quantityTextView = (TextView) view.findViewById(R.id.quantity);
 
         // Find the columns of product attributes that we're interested in
-       // int idColumnIndex = cursor.getColumnIndex(ProductEntry._ID);
         int nameColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_PRODUCT_NAME);
         int priceColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_PRODUCT_PRICE);
         int quantityColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_PRODUCT_QUANTITY);
@@ -89,20 +86,20 @@ public class ProductCursorAdapter extends CursorAdapter {
 
         // If the quantity is empty string or null, then use some default text
         // that says "Unknown info", so the TextView isn't blank.
-      //  saleButton = view.findViewById(R.id.sale_button);
-       // final int productId = cursor.getInt(cursor.getColumnIndex(ProductEntry._ID));
-       // final String finalProductQuantity = productQuantity;
-       // saleButton.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-         //   public void onClick(View view) {
+        saleButton = view.findViewById(R.id.sale_button);
+        final int productId = cursor.getInt(cursor.getColumnIndex(ProductEntry._ID));
+        final String finalProductQuantity = productQuantity;
+        saleButton.setOnClickListener(new View.OnClickListener() {
+            //    @Override
+            public void onClick(View view) {
                 //getting the int value of the String productQuantity
-        //        quantity = Integer.parseInt(finalProductQuantity);
-         //       Uri productUri = ContentUris.withAppendedId(ProductEntry.CONTENT_URI, productId);
-         //       saleButton(context, productUri, quantity);
-         //   }
-      //  });
+                quantity = Integer.parseInt(finalProductQuantity);
+                Uri productUri = ContentUris.withAppendedId(ProductEntry.CONTENT_URI, productId);
+                saleButton(context, productUri, quantity);
+            }
+        });
     }
-/*
+
     private void saleButton(Context context, Uri uri, int quantity) {
 
         if (quantity == 0) {
@@ -120,5 +117,4 @@ public class ProductCursorAdapter extends CursorAdapter {
             }
         }
     }
-    */
 }

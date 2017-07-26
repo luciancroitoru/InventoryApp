@@ -64,4 +64,13 @@
     <string name="button_email">Email</string>
     <!--Product cursor adapter-->
     <string name="error_sale_update">Error on sale update</string>
+
+    <!--List item-->
+    <string name="list_item_name">Name</string>
+    <string name="list_item_category_price">Price: </string>
+    <string name="list_item_price">Price</string>
+    <string name="list_item_category_quantity">Quantity: </string>
+    <string name="list_item_quantity">Quantity</string>
+    <string name="list_item_buy_button">Buy</string>
+
 </resources>

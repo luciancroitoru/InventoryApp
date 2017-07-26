@@ -16,7 +16,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--TextStyle 18SP -->
+    <!--TextStyle-->
     <style name="TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -24,14 +24,14 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
-    <!--TextStyle 18SP dark-->
+    <!--TextStyle dark-->
     <style name="TextStyleDark">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textDark</item>
     </style>
 
-    <!--TextStyle 18SP accent color-->
+    <!--TextStyle accent color-->
     <style name="TextStyleAccent" parent="TextStyle">
         <item name="android:textColor">@color/colorAccent</item>
     </style>

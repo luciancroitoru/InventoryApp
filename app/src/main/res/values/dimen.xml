@@ -8,6 +8,8 @@
 
     <!--Margins-->
     <dimen name="item_margin">8dp</dimen>
+    <dimen name="list_item_margin">4dp</dimen>
+    <dimen name="list_item_margin_left">8dp</dimen>
     <dimen name="editor_margin">10dp</dimen>
     <dimen name="editor_text_margin">20dp</dimen>
     <!--Text size-->

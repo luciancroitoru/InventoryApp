@@ -1,7 +1,9 @@
 package com.example.android.inventoryapp;
 
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -77,6 +80,13 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
         }
     };
 
+    //hides keyboard when user enters the Editor activity
+    public static void hideKeyboard(Activity activity) {
+        if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +127,7 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
         mSupplierPhoneEditText = (EditText) findViewById(R.id.supplier_phone);
         mSupplierEmailEditText = (EditText) findViewById(R.id.supplier_email);
 
-        //Make the - button to modify quantity variable by - 1 by each click
+        //Make the - button modify quantity variable by - 1 with each click
         minusButton = (Button) findViewById(R.id.minus_button);
         minusButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +151,7 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
             }
         });
 
-        //Make the + button to modify quantity variable by + 1 by each click
+        //Make the + button modify quantity variable by + 1 with each click
         plusButton = (Button) findViewById(R.id.plus_button);
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -286,7 +296,7 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
         builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Keep editing" button, so dismiss the dialog
-                // and continue editing the item(puzzle).
+                // and continue editing the product.
                 if (dialog != null) {
                     dialog.dismiss();
                 }
@@ -581,5 +591,25 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
         }
         // Close the activity
         finish();
+    }
+
+    // hides keyboard when user clicks outside of EditText.
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        View v = getCurrentFocus();
+
+        if (v != null &&
+                (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) &&
+                v instanceof EditText &&
+                !v.getClass().getName().startsWith("android.webkit.")) {
+            int scrcoords[] = new int[2];
+            v.getLocationOnScreen(scrcoords);
+            float x = ev.getRawX() + v.getLeft() - scrcoords[0];
+            float y = ev.getRawY() + v.getTop() - scrcoords[1];
+
+            if (x < v.getLeft() || x > v.getRight() || y < v.getTop() || y > v.getBottom())
+                hideKeyboard(this);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }
