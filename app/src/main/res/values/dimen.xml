@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin around the button in CatalogActivity -->
+    <dimen name="button_margin">8dp</dimen>
+
+    <!-- Common margin value used throughout the app -->
+    <dimen name="activity_margin">16dp</dimen>
+
+    <!--Margins-->
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="editor_margin">10dp</dimen>
+    <dimen name="editor_text_margin">20dp</dimen>
+    <!--Text size-->
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="order_text_size">20sp</dimen>
+    <!--Objects dimens-->
+    <dimen name="editor_image_size">100dp</dimen>
+    <dimen name="button_dimen">40dp</dimen>
+    <dimen name="zero_dimen">0dp</dimen>
+</resources>
