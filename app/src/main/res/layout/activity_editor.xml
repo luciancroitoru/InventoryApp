@@ -29,7 +29,7 @@
                     android:text="@string/category_product_name" />
 
                 <EditText
-                    android:id="@+id/puzzle_name"
+                    android:id="@+id/product_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_product_name"
@@ -48,7 +48,7 @@
                     android:text="@string/category_product_price" />
 
                 <EditText
-                    android:id="@+id/puzzle_price"
+                    android:id="@+id/product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_product_price"
@@ -99,7 +99,7 @@
                         android:text="@string/button_minus" />
 
                     <EditText
-                        android:id="@+id/puzzle_quantity"
+                        android:id="@+id/product_quantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/editor_margin"

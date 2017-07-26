@@ -110,9 +110,9 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
             }
         });
 
-        mNameEditText = (EditText) findViewById(R.id.puzzle_name);
-        mPriceEditText = (EditText) findViewById(R.id.puzzle_price);
-        mQuantityEditText = (EditText) findViewById(R.id.puzzle_quantity);
+        mNameEditText = (EditText) findViewById(R.id.product_name);
+        mPriceEditText = (EditText) findViewById(R.id.product_price);
+        mQuantityEditText = (EditText) findViewById(R.id.product_quantity);
         mSupplierNameEditText = (EditText) findViewById(R.id.supplier_name);
         mSupplierPhoneEditText = (EditText) findViewById(R.id.supplier_phone);
         mSupplierEmailEditText = (EditText) findViewById(R.id.supplier_email);

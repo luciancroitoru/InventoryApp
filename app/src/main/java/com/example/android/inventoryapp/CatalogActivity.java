@@ -61,7 +61,7 @@ public class CatalogActivity extends AppCompatActivity implements
         productListView.setEmptyView(emptyView);
 
         // Setup an Adapter to create a list item for each row of pet data in the Cursor.
-        // There is no pet data yet (until the loader finishes) so pass in null for the Cursor.
+        // There is no product data yet (until the loader finishes) so pass in null for the Cursor.
         mCursorAdapter = new ProductCursorAdapter(this, null);
         productListView.setAdapter(mCursorAdapter);
 
@@ -95,6 +95,7 @@ public class CatalogActivity extends AppCompatActivity implements
     /**
      * Helper method to insert hardcoded books data into the database.
      */
+    /*
     private void insertProducts() {
         insertProduct("Book", 10, 6, "Publisher", "+40 746 100 690", "supplier@company.com", R.drawable.theoryu);
     }
@@ -137,11 +138,11 @@ public class CatalogActivity extends AppCompatActivity implements
     /**
      * Helper method to delete all products in the database.
      */
-    private void deleteAllProducts() {
+   /* private void deleteAllProducts() {
         int rowsDeleted = getContentResolver().delete(ProductEntry.CONTENT_URI, null, null);
         Log.v("CatalogActivity", rowsDeleted + " rows deleted from pet database");
     }
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu options from the res/menu/menu_catalog.xml file.
@@ -149,7 +150,7 @@ public class CatalogActivity extends AppCompatActivity implements
         getMenuInflater().inflate(R.menu.menu_catalog, menu);
         return true;
     }
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
@@ -165,6 +166,7 @@ public class CatalogActivity extends AppCompatActivity implements
         }
         return super.onOptionsItemSelected(item);
     }
+    */
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {

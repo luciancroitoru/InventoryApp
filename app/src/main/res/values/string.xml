@@ -62,4 +62,6 @@
     <string name="category_order">Order</string>
     <string name="button_phone">Phone</string>
     <string name="button_email">Email</string>
+    <!--Product cursor adapter-->
+    <string name="error_sale_update">Error on sale update</string>
 </resources>
