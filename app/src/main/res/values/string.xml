@@ -73,4 +73,6 @@
     <string name="list_item_quantity">Quantity</string>
     <string name="list_item_buy_button">Buy</string>
 
+    <!--Required change, text for toast message in Editors Activity-->
+    <string name="product_fail_message">Error, please complete all fields with correct information</string>
 </resources>

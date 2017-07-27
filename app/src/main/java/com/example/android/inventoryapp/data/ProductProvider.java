@@ -2,17 +2,14 @@ package com.example.android.inventoryapp.data;
 
 import android.content.ContentProvider;
 import android.net.Uri;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
-        import android.content.ContentProvider;
-        import android.content.ContentUris;
-        import android.content.ContentValues;
-        import android.content.UriMatcher;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.net.Uri;
-        import android.util.Log;
-
-        import com.example.android.inventoryapp.data.ProductContract.ProductEntry;
+import com.example.android.inventoryapp.data.ProductContract.ProductEntry;
 
 /**
  * {@link ContentProvider} for Products app.
@@ -253,9 +250,10 @@ public class ProductProvider extends ContentProvider {
         int rowsUpdated = db.update(ProductEntry.TABLE_NAME, values, selection, selectionArgs);
         // If 1 or more rows were updated, then notify all listeners that the data at the
         // given URI has changed
-        if (rowsUpdated != 0){
+        if (rowsUpdated != 0) {
             //Notify all listeners that the data has changed for the product content URI
-            getContext().getContentResolver().notifyChange(uri, null);}
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
 
         //Return the number of database rows affected by the update statement
         return rowsUpdated;

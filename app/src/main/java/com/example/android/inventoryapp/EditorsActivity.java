@@ -342,6 +342,9 @@ public class EditorsActivity extends AppCompatActivity implements LoaderManager.
         //checking if all inputs are valid
         if (mCurrentProductUri == null && TextUtils.isEmpty(mSaveImageText) || TextUtils.isEmpty(nameString)
                 || TextUtils.isEmpty(priceString) || TextUtils.isEmpty(quantityString)) {
+            // If validation fails, user is asked to input correct information
+            Toast.makeText(this, getString(R.string.product_fail_message),
+                    Toast.LENGTH_LONG).show();
             return;
         }
 
